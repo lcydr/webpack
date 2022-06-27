@@ -4,5 +4,21 @@
 // console.log('实现tabs标签页的逻辑')
 import './banner.js';
 import './tabs.js'
+// import './styles/index.css'
+import './styles/index.less';
 import $ from 'jquery';
-$('#swiper').css('background-color', 'red')
+// 引入字体图标文件
+import './assets/fonts/iconfont.css'
+// $('#swiper').css('background-color', 'red')
+
+class App {
+  static a = 123
+}
+
+console.log(App.a)
+
+// 引入图片-使用
+import imgUrl from './assets/1.gif'
+const theImg = document.createElement("img")
+theImg.src = imgUrl
+document.body.appendChild(theImg)
