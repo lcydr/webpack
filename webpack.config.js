@@ -2,6 +2,9 @@ const path = require("path")
 // 引入自动生成 html 的插件
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// webpack.config.js
+const { VueLoaderPlugin } = require('vue-loader')
+
 
 module.exports = {
   mode: 'development',
@@ -68,12 +71,36 @@ module.exports = {
             presets: ['@babel/preset-env'] // 预设:转码规则(用bable开发环境本来预设的)
           }
         }
-      }
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      // 它会应用到普通的 `.js` 文件
+      // 以及 `.vue` 文件中的 `<script>` 块
+      {
+        test: /\.js$/,
+        loader: 'babel-loader'
+      },
+      // 它会应用到普通的 `.css` 文件
+      // 以及 `.vue` 文件中的 `<style>` 块
+      // {
+      //   test: /\.css$/,
+      //   use: [
+      //     'vue-style-loader',
+      //     'css-loader'
+      //   ]
+      // }
+
+
 
     ],
 
   },
-
+  plugins: [
+    // 请确保引入这个插件！
+    new VueLoaderPlugin()
+  ],
   devServer: {
     port: 3000, // 端口号
     open: true

@@ -10,12 +10,19 @@ import $ from 'jquery';
 // 引入字体图标文件
 import './assets/fonts/iconfont.css'
 // $('#swiper').css('background-color', 'red')
+// import './app.vue'
+import { createApp } from 'vue'
+import App from './app.vue'
 
-class App {
-  static a = 123
-}
+const app = createApp(App)
 
-console.log(App.a)
+Vue.mount('#app')
+
+// class App {
+//   static a = 123
+// }
+
+// console.log(App.a)
 
 // 引入图片-使用
 import imgUrl from './assets/1.gif'
